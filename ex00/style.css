@@ -2,7 +2,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-
 	font-family: Arial, sans-serif;
 }
 
@@ -11,6 +10,10 @@ body {
 }
 
 .hide {
+	display: none;
+}
+
+div#home.hide * {
 	display: none;
 }
 
@@ -38,9 +41,9 @@ header img {
 	display: none;
 }
 
-header button#logout {
+header button#prof-button {
 	margin: auto 1px;
-	padding: .4rem;
+	padding: .4rem .7rem;
 	border-radius: 5px;
 	background-color: #918b8b;
 	color: white;
@@ -71,14 +74,19 @@ header ul#menu {
 	border-left: none;
 	background-color: #918b8b;
 	opacity: 0;
-    pointer-events: none;
 }
 
 header ul#menu.visible {
     opacity: 1;
     transform: translateX(110px);
 	transition: opacity 0.5s ease, transform 0.5s ease;
-    pointer-events: auto; /* Allow interaction when visible */
+}
+
+header ul#menu li {
+	height: 25px;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
 }
 
 header ul#menu a {
@@ -120,43 +128,79 @@ div#wrapper {
 	top: 50px;
 	background-color: #6070c9;
 	width: 100%;
-	padding: 1rem;
+}
+
+div#wrapper div#home {
 	display: flex;
 	flex-flow: column;
+	justify-content: center;
+}
+
+div#wrapper div#home div#search-bar {
+	background-color: black;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+	height: 35px;
+}
+
+div#wrapper div#home div#search-bar input {
+	width: 90%;
+	padding-left: 1rem;
+	font-size: 1.1em;
+}
+
+div#wrapper div#home div#search-bar button {
+	width: 10%;
+	background-color: rgb(178, 178, 178);
+}
+
+div#wrapper div#home div#search-bar button img {
+	height: 100%;
+	width: 100%;
+	color: white;
+}
+
+div#wrapper div#home h1 {
+	margin: 1rem;
 }
 
 div#wrapper div#home div#cat-list {
 	display: flex;
-	width: 100%;
-	flex-flow: column;
-	justify-content: center;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	color: white;
+	max-width: 100%;
 }
 
-div#wrapper div#home div#cat-list ul{
+div#wrapper div#home div#cat-list div {
+	width: 40%;
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: center;
+	position: relative;
+	margin: 1rem 0;
 }
 
-div#wrapper div#home div#cat-list ul li {
-	height: 125px;
-	width: 45%;
-	background-color: rgb(130, 120, 120);
-	border: 1px solid black;
-	list-style: none;
-	text-align: center;
-	margin: 2.5%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 5%;
+div#wrapper div#home div#cat-list div img {
+	width: 100%;
+	height: 100%;
+
 }
 
-div#wrapper div#home div#cat-list ul li a {
-	text-decoration: none;
-	font-size: 20px;
+div#wrapper div#home div#cat-list div p {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: .1rem .25rem;
+	font-size: .9rem;
+	background-color: rgba(0, 0, 0, 0.3);
 	font-weight: bold;
-	color: white;
+}
+
+div#wrapper div#favourites {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
 }
 
 /* media query 430px wide */

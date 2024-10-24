@@ -5,6 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Globify</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="icon" href="icon.png" type="image/x-icon">
+	<script src="backend.js"></script>
+		
 </head>
 <body>
 	<header>
@@ -15,37 +18,34 @@
 			<div></div>
 		</div>
 		<h1 id="title" class="white">GLOBIFY</h1>
-		<button id="logout">Log out</button>
+		<button id="prof-button" onclick="showSection('profile')">Profile</button>
 		<ul id="menu">
-			<li id="home-li"><a href="#">Home</a></li>
-			<li id="favs-li"><a href="#">Favorites</a></li>
-			<li id="play-li"><a href="#">Playlists</a></li>
+			<li id="home-li" onclick="showSection('home')"><a href="#">Home</a></li>
+			<li id="favs-li" onclick="showSection('favorites')"><a href="#">Favorites</a></li>
+			<li id="play-li" onclick="showSection('playlists')"><a href="#">Playlists</a></li>
 		</ul>
 	</header>
 	<div id="wrapper">
 		<div id="home">
-			<h1 class="white">Home</h1>
-			<div id="cat-list">
-				<h2 class="white">Categories</h2>
-				<ul>
-					<li><a href="#">Rock</a></li>
-					<li><a href="#">Pop</a></li>
-					<li><a href="#">Jazz</a></li>
-					<li><a href="#">Metal</a></li>
-					<li><a href="#">Reggae</a></li>
-					<li><a href="#">Hip Hop</a></li>
-					<li><a href="#">Classical</a></li>
-					<li><a href="#">Electronic</a></li>
-					<li><a href="#">Blues</a></li>
-					<li><a href="#">Country</a></li>
-				</ul>
+			<div id="search-bar">
+				<input type="text" id="search" placeholder="Search for songs">
+				<button id="search-button" onclick="showSection('search-result')"><img src="loupe.svg"></button>
 			</div>
+			<h1 class="white">Home</h1>
+			<div id="cat-list"></div>
 		</div>
 		<div id="favorites" class="hide">
-			<h1>Favorite songs</h1>
+			<h1 class="white">Favorite songs</h1>
+			<div id="fav-list"></div>
 		</div>
 		<div id="playlists" class="hide">
-			<h1>Playlists</h1>
+			<h1 class="white">Playlists</h1>
+		</div>
+		<div id="profile" class="hide">
+			<h1 class="white">Profile</h1>
+		</div>
+		<div id="search-result" class="hide">
+			<h1 class="white">Results:</h1>
 		</div>
 	</div>
 	<footer>
@@ -53,4 +53,14 @@
 	</footer>
 </body>
 <script src="script.js"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const accessToken = localStorage.getItem('spotifyAccessToken');
+		if (!accessToken) {
+			window.location.href = 'login.html';
+		} else {
+			showCategories();
+		}
+	});
+</script>
 </html>

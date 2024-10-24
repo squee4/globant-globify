@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Globify</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-container">
+        <h1>Login to Globify</h1>
+        <button id="login-button">Login with Spotify</button>
+    </div>
+    <script>
+        document.getElementById('login-button').addEventListener('click', function() {
+            const clientId = '07a8dde75a414473a6e9243392a7846c';
+            const redirectUri = 'http://localhost:5500/ex00/callback.html';
+            const scopes = 'user-read-private user-read-email';
+            const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${clientId}&scope=${encodeURIComponent(scopes)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+            window.location.href = authUrl;
+        });
+    </script>
+</body>
+</html>

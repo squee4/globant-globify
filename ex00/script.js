@@ -22,33 +22,32 @@ document.getElementById('title').addEventListener('click', function() {
 
 
 // Menu moves through different views
-document.getElementById('home-li').addEventListener('click', function() {
-    var section = document.getElementById('home');
-    if (section.classList.contains('hide'))
-    {
-        section.classList.remove('hide');
-        document.getElementById('favorites').classList.add('hide');
-        document.getElementById('playlists').classList.add('hide');
-    }   
-});
+function showSection(sectionId) {
+    var sections = ['home', 'favorites', 'playlists', 'profile', 'search-result'];
+    sections.forEach(function(id) {
+        var section = document.getElementById(id);
+        if (id === sectionId) {
+            section.classList.remove('hide');
+        } else {
+            section.classList.add('hide');
+        }
+    });
+    document.getElementById('menu').classList.remove('visible');
+}
 
-document.getElementById('favs-li').addEventListener('click', function() {
-    var section = document.getElementById('favorites');
-    if (section.classList.contains('hide'))
-    {
-        section.classList.remove('hide');
-        document.getElementById('home').classList.add('hide');
-        document.getElementById('playlists').classList.add('hide');
+// Set onclick event for logo
+document.addEventListener('DOMContentLoaded', function() {
+    const logo = document.getElementById('logo');
+    const audio = new Audio('piksha.mp3');
+
+    // Remove any existing event listeners to prevent stacking
+    logo.removeEventListener('click', playAudio);
+
+    // Define the function to play audio
+    function playAudio() {
+        audio.play();
     }
-});
 
-
-document.getElementById('play-li').addEventListener('click', function() {
-    var section = document.getElementById('playlists');
-    if (section.classList.contains('hide'))
-    {
-        section.classList.remove('hide');
-        document.getElementById('home').classList.add('hide');
-        document.getElementById('favorites').classList.add('hide');
-    }
+    // Add the event listener to the logo
+    logo.addEventListener('click', playAudio);
 });
