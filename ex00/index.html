@@ -6,8 +6,6 @@
 	<title>Globify</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="icon" href="icon.png" type="image/x-icon">
-	<script src="backend.js"></script>
-		
 </head>
 <body>
 	<header>
@@ -26,41 +24,11 @@
 		</ul>
 	</header>
 	<div id="wrapper">
-		<div id="home">
-			<div id="search-bar">
-				<input type="text" id="search" placeholder="Search for songs">
-				<button id="search-button" onclick="showSection('search-result')"><img src="loupe.svg"></button>
-			</div>
-			<h1 class="white">Home</h1>
-			<div id="cat-list"></div>
-		</div>
-		<div id="favorites" class="hide">
-			<h1 class="white">Favorite songs</h1>
-			<div id="fav-list"></div>
-		</div>
-		<div id="playlists" class="hide">
-			<h1 class="white">Playlists</h1>
-		</div>
-		<div id="profile" class="hide">
-			<h1 class="white">Profile</h1>
-		</div>
-		<div id="search-result" class="hide">
-			<h1 class="white">Results:</h1>
-		</div>
+		<!-- Here is where all the jam goes on -->
 	</div>
 	<footer>
 		<small> 2030 Globify aweboide &copy; </small>
 	</footer>
 </body>
 <script src="script.js"></script>
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		const accessToken = localStorage.getItem('spotifyAccessToken');
-		if (!accessToken) {
-			window.location.href = 'login.html';
-		} else {
-			showCategories();
-		}
-	});
-</script>
 </html>

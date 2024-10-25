@@ -130,13 +130,13 @@ div#wrapper {
 	width: 100%;
 }
 
-div#wrapper div#home {
+div#wrapper {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
 }
 
-div#wrapper div#home div#search-bar {
+div#wrapper div#search-bar {
 	background-color: black;
 	display: flex;
 	flex-flow: row;
@@ -144,50 +144,52 @@ div#wrapper div#home div#search-bar {
 	height: 35px;
 }
 
-div#wrapper div#home div#search-bar input {
+div#wrapper div#search-bar input {
 	width: 90%;
 	padding-left: 1rem;
 	font-size: 1.1em;
 }
 
-div#wrapper div#home div#search-bar button {
+div#wrapper div#search-bar button {
 	width: 10%;
 	background-color: rgb(178, 178, 178);
 }
 
-div#wrapper div#home div#search-bar button img {
+div#wrapper div#search-bar button img {
 	height: 100%;
 	width: 100%;
 	color: white;
 }
 
-div#wrapper div#home h1 {
+div#wrapper h1 {
 	margin: 1rem;
 }
 
-div#wrapper div#home div#cat-list {
+div#list {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-evenly;
+	align-items:normal;
 	color: white;
 	max-width: 100%;
+	height: 90vh;
 }
 
-div#wrapper div#home div#cat-list div {
+.square {
 	width: 40%;
+	height: 40vw;
 	display: flex;
 	flex-flow: row wrap;
 	position: relative;
-	margin: 1rem 0;
+	margin: 5%;
 }
 
-div#wrapper div#home div#cat-list div img {
-	width: 100%;
-	height: 100%;
-
+.square img {
+	max-width: 100%;
+	max-height: 100%;
 }
 
-div#wrapper div#home div#cat-list div p {
+.square p {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -197,10 +199,26 @@ div#wrapper div#home div#cat-list div p {
 	font-weight: bold;
 }
 
-div#wrapper div#favourites {
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
+.square .play-pause-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding-top: 33%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+
+.square:hover .play-pause-button {
+	opacity: 1;
+	transition: opacity 0.5s ease;
 }
 
 /* media query 430px wide */
@@ -239,5 +257,11 @@ div#wrapper div#favourites {
 
 	div#wrapper {
 		top: 75px;
+	}
+
+	.square {
+		width: 30%;
+		height: 30vw;
+		margin: 1.66%;
 	}
 }
